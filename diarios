@@ -1,0 +1,48 @@
+**************** ingresar valores consola ************
+import teradata
+vble = input()
+____________________________________________________________________________________________________________________________
+
+**************** conecion teradata ********************
+udaExec = teradata.UdaExec(appName="name", version="1.0", logConsole=False)
+session = udaExec.connect(method="odbc", dsn="odbc_name",  username="user", password="admin");
+cursor =  session.cursor();
+cnt = cursor.execute("sel top 30 * from owner.table ").rowcount;
+rows = cursor.execute("sel top 30 * from owner.table").fetchall();
+algo = cursor.execute("sel top 30 * from owner.table")
+columns = [column[0] for column in algo.description]
+df = pd.DataFrame(rows)
+df.columns = columns  
+____________________________________________________________________________________________________________________________
+
+**************** conecion Impala Cloudera ********************
+from impala.dbapi import connect -- instalar por anaconda Navegator
+
+#Esta función se conecta las tablas HDFS a través de Impala
+def connectImpala(impalaCfg):
+
+    connImpala = connect(host=impalaCfg["host"], port=impalaCfg["port"])
+    return connImpala
+
+
+#Esta función ejecuta comandos SQL y no devuelve cursor
+def setImpalaData(impalaConnection, qry):
+
+    cursor = impalaConnection.cursor()
+    cursor.execute("use external_table")
+    cursor.execute("invalidate metadata")
+    cursor.execute(qry)
+
+#Esta función ejecuta comandos SQL y devuelve cursor
+def getImpalaData(impalaConnection, qry):
+
+    cursor = impalaConnection.cursor()
+    cursor.execute("use external_table")
+    cursor.execute("invalidate metadata")
+    cursor.execute(qry)
+
+    return cursor
+____________________________________________________________________________________________________________________________
+
+
+
