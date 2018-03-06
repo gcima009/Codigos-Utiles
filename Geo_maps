@@ -1,6 +1,14 @@
+***************************************** 
+OpenStreetMaps.
+*****************************************
 import geopy as gp
 from geopy.geocoders import Nominatim
 now = Nominatim()
+requiere direccion localida y estado 
 n = now.geocode("Peron 456, Buenos Aires")
 n.latitude, n.longitude
 (-34.6056310795918, -58.373085422449)
+______________________________________________________________________________________________________
+***************************************** 
+OpenStreetMaps.
+*****************************************
