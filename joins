@@ -1,0 +1,1 @@
+ A.merge(B, left_on='lkey', right_on='rkey', how='outer')
