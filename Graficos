@@ -1,0 +1,8 @@
+
+#plt.bar( educ.cantidad , educ.nombre, 0.8)
+# https://seaborn.pydata.org/generated/seaborn.barplot.html
+gr = sns.barplot(x= grf1.index, y=grf1.values , orient='v')
+gr.set_title("Estado academico de Postulantes", fontsize=15)
+gr.set_xlabel("Estado", fontsize=12)
+gr.set_ylabel("Q_Postulantes", fontsize=12)
+
