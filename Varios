@@ -1,1 +1,5 @@
+Max Display 
 pd.options.display.max_colwidth = 0
+
+Lambda
+fecha = df_post.fechanacimiento.apply(lambda x: dt.strptime(x.replace('-','/'), '%Y/%m/%d'))
