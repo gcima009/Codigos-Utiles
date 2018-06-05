@@ -1,0 +1,1 @@
+return arrayOfSheeps.count(True) -- dentro de un array, contar determinados elementos.
