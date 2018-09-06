@@ -1,0 +1,38 @@
+----DATE - TIME  ----------------------------------------------------------------------------------------
+$ https://docs.python.org/2/library/datetime.html#datetime.datetime
+import timestring
+import datetime as dt
+Vble_Date = timestring.Date('2018-08-08').date 
+****
+Vble_Date_2 = dt.datetime.strptime(x,'%Y-%m-%d')
+Vble_Hora = dt.datetime.strptime(marcos1, '%H:%M:%S').time()
+
+----APPLY ----------------------------------------------------------------------------------------
+$ https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.apply.html
+
+Apply: Apply a function along an axis of the DataFrame
+Apply es una funcion que se aplcian a series, es decir que la funcion apply espera eso recibir una Serie. Luego indicando si se 
+aplicara a las columnas o a las filas es lo que define el valor de axis. 
+Apply ejecuta una funcion sobre todos los objetos de las serie sobre la que se ejecutara. 
+axis = 1 Columns
+axis = 0 Rows
+Series_Object.apply(funtion)
+Ejemplos
+* df.apply(np.sum, axis=1)
+Aplica a todo el dataset, la suma de sus columnas 
+
+* df.apply(np.sum, axis=0)
+aplica la suma a todas las filas y las agrupa como pivoteandolas 
+
+* result_type='expand'
+Pasar result_type = 'expand' expandirá los resultados de tipo lista a las columnas de un Dataframe
+df.apply(lambda x: [1, 2], axis=1, result_type='expand')
+
+----LAMBDA ----------------------------------------------------------------------------------------
+LAMBDA 
+Para que a los valores de la serie que se esta tomando, 
+lambda argument: manipulate(argument) --> vble = objeto.aplly(lambda x: funcion(x))
+mbl_urls.visited_on.apply(lambda x: dt.datetime.strptime(x,'%Y-%m-%d'))
+
+----SORT ----------------------------------------------------------------------------------------
+mbl_urls.sort_values(['user_id', 'date'],ascending= True)
